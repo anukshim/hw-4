@@ -1,0 +1,9 @@
+<h1>My Entries</h1>
+
+<% @entries.each do |entry| %>
+  <div>
+    <h3><%= entry.title %></h3>
+    <p><%= entry.description %></p>
+    <p>Visited on: <%= entry.occurred_on %></p>
+  </div>
+<% end %>

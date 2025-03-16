@@ -1,17 +1,22 @@
-<h1>New User Account</h1>
+<h1>Sign Up</h1>
 
 <form action="/users" method="post">
+  <%= csrf_meta_tags %>
+
   <p>
-    <label for="username">Username</label>
+    <label for="username">Username:</label>
     <input type="text" name="username" id="username">
   </p>
+
   <p>
-    <label for="email">Email</label>
-    <input type="text" name="email" id="email">
+    <label for="email">Email:</label>
+    <input type="email" name="email" id="email">
   </p>
+
   <p>
-    <label for="password">Password</label>
-    <input type="text" name="password" id="password">
+    <label for="password">Password:</label>
+    <input type="password" name="password" id="password">
   </p>
-  <button>Signup</button>
+
+  <button type="submit">Sign Up</button>
 </form>
