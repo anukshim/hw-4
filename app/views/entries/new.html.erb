@@ -1,0 +1,22 @@
+<h1>New Entry</h1>
+
+<form action="/entries" method="post">
+  <input type="hidden" name="place_id" value="<%= params["place_id"] %>">
+
+  <p>
+    <label for="title_input">Title</label>
+    <input type="text" name="title" id="title_input">
+  </p>
+
+  <p>
+    <label for="description_input">Description</label>
+    <input type="text" name="description" id="description_input">
+  </p>
+
+  <p>
+    <label for="occurred_on_input">Occurred On</label>
+    <input type="date" name="occurred_on" id="occurred_on_input">
+  </p>
+
+  <button>Save</button>
+</form>
