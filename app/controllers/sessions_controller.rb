@@ -3,7 +3,6 @@ class SessionsController < ApplicationController
   end
 
   def create
-    # Find user by email
   @user = User.find_by({ "email" => params["email"] })
 
   # If user exists, check password

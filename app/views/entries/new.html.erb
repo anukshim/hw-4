@@ -4,19 +4,19 @@
   <input type="hidden" name="place_id" value="<%= params["place_id"] %>">
 
   <p>
-    <label for="title_input">Title</label>
-    <input type="text" name="title" id="title_input">
+    <label for="title">Title:</label>
+    <input type="text" name="title" id="title">
   </p>
 
   <p>
-    <label for="description_input">Description</label>
-    <input type="text" name="description" id="description_input">
+    <label for="description">Description:</label>
+    <textarea name="description" id="description"></textarea>
   </p>
 
   <p>
-    <label for="occurred_on_input">Occurred On</label>
-    <input type="date" name="occurred_on" id="occurred_on_input">
+    <label for="occurred_on">Occurred On:</label>
+    <input type="date" name="occurred_on" id="occurred_on">
   </p>
 
-  <button>Save</button>
+  <button type="submit">Save Entry</button>
 </form>
