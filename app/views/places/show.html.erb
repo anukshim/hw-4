@@ -1,16 +1,28 @@
 <h1><%= @place["name"] %></h1>
 
 <h2>My Entries</h2>
-<% for entry in @entries %>
-  <h3><%= entry["title"] %></h3>
-  <h4><%= entry["occurred_on"] %></h4>
-  <p><%= entry["description"] %></p>
-<% end %>
+
+<div class="row">
+  <% for entry in @entries %>
+    <div class="col-md-4">
+      <div class="card shadow-sm mb-4">
+        <div class="card-body">
+          <h3 class="card-title"><%= entry.title %></h3>
+          <h4 class="text-muted"><%= entry.occurred_on %></h4>
+          <p class="card-text"><%= entry.description %></p>
+          <% if entry.respond_to?(:image) && entry.image.attached? %>
+            <img src="<%= url_for(entry.image) %>" class="img-fluid rounded mb-3" alt="Entry Image">
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
 
 <p>
-  <a href="/entries/new?place_id=<%= @place["id"] %>">New Entry</a>
+  <a href="/entries/new?place_id=<%= @place["id"] %>" class="btn btn-primary">New Entry</a>
 </p>
 
 <p>
-  <a href="/places">Back to All Places</a>
+  <a href="/places" class="btn btn-secondary">Back to All Places</a>
 </p>

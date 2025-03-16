@@ -1,22 +1,22 @@
-<h1>Sign Up</h1>
+<h1 class="mb-4">Sign Up</h1>
 
-<form action="/users" method="post">
-  <%= csrf_meta_tags %>
+<div class="card p-4 shadow-sm">
+  <form action="/users" method="post">
+    <div class="mb-3">
+      <label for="username" class="form-label">Username:</label>
+      <input type="text" name="username" id="username" class="form-control">
+    </div>
 
-  <p>
-    <label for="username">Username:</label>
-    <input type="text" name="username" id="username">
-  </p>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email:</label>
+      <input type="email" name="email" id="email" class="form-control">
+    </div>
 
-  <p>
-    <label for="email">Email:</label>
-    <input type="email" name="email" id="email">
-  </p>
+    <div class="mb-3">
+      <label for="password" class="form-label">Password:</label>
+      <input type="password" name="password" id="password" class="form-control">
+    </div>
 
-  <p>
-    <label for="password">Password:</label>
-    <input type="password" name="password" id="password">
-  </p>
-
-  <button type="submit">Sign Up</button>
-</form>
+    <button type="submit" class="btn btn-success w-100">Sign Up</button>
+  </form>
+</div>

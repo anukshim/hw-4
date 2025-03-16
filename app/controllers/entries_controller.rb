@@ -29,6 +29,9 @@ class EntriesController < ApplicationController
       @entry["user_id"] = session["user_id"]  # Assign entry to logged-in user
       @entry["place_id"] = params["place_id"]
 
+      @entry.image.attach(params[:image]) if params[:image].present?
+
+
       if @entry.save
         redirect_to "/places/#{params["place_id"]}"
       else

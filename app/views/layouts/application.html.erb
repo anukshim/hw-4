@@ -1,30 +1,54 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Tacostagram Final</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Tacostagram</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="/stylesheets/application.css">
   </head>
 
   <body>
-    <div>
+    <!-- Bootstrap Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">Tacostagram</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <% if session["user_id"] %>
+              <li class="nav-item">
+                <span class="navbar-text">Logged in as: <%= User.find(session["user_id"]).username %></span>
+              </li>
+              <li class="nav-item">
+                <%= button_to "Logout", "/logout", method: :delete, class: "btn btn-danger btn-sm ms-2" %>
+              </li>
+            <% else %>
+              <li class="nav-item">
+                <%= link_to "Login", "/login", class: "nav-link" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "Signup", "/users/new", class: "nav-link" %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Bootstrap Container -->
+    <div class="container mt-4">
       <%= flash["notice"] %>
+      <%= yield %>
     </div>
-    
-    <div style="display: flex; align-items: center; gap: 10px;">
-  <a href="/">Home</a>
-  
-  <% if session["user_id"] %>
-    <span>Logged in as: <%= User.find(session["user_id"]).username %></span>
-    <%= button_to "Logout", "/logout", method: :delete, data: { turbo: false }, class: "logout-button" %>
-  <% else %>
-    <%= link_to "Login", "/login" %> |
-    <%= link_to "Signup", "/users/new" %>
-  <% end %>
-</div>
-    <%= yield %>
+
+    <!-- Bootstrap JavaScript Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

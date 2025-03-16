@@ -5,8 +5,8 @@ class PlacesController < ApplicationController
   end
 
   def show
-    @place = Place.find_by({ "id" => params["id"] })
-    @entries = Entry.where({ "place_id" => @place["id"] })
+    @place = Place.find(params[:id])
+    @entries = Entry.where(place_id: @place.id, user_id: session["user_id"]).with_attached_image
   end
 
   def new
