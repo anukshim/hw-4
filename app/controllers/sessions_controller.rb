@@ -19,8 +19,8 @@ end
 
   def destroy
     session["user_id"] = nil
-  flash["notice"] = "Logged out successfully."
-  redirect_to "/login"
+    flash["notice"] = "Logged out successfully."
+    redirect_to "/login"
   end
 end
   

@@ -14,18 +14,17 @@
       <%= flash["notice"] %>
     </div>
     
-    <div>
-      <a href="/">Home</a>
-      
-      <% if session["user_id"] %>
-        Logged in as: <%= User.find(session["user_id"]).username %> |
-        <%= link_to "Logout", "/logout" %>
-      <% else %>
-        <%= link_to "Login", "/login" %> |
-        <%= link_to "Signup", "/users/new" %>
-      <% end %>
-    </div>
-
+    <div style="display: flex; align-items: center; gap: 10px;">
+  <a href="/">Home</a>
+  
+  <% if session["user_id"] %>
+    <span>Logged in as: <%= User.find(session["user_id"]).username %></span>
+    <%= button_to "Logout", "/logout", method: :delete, data: { turbo: false }, class: "logout-button" %>
+  <% else %>
+    <%= link_to "Login", "/login" %> |
+    <%= link_to "Signup", "/users/new" %>
+  <% end %>
+</div>
     <%= yield %>
   </body>
 </html>
